@@ -12,7 +12,7 @@
 <body>
 <div class="container">
     <!-- the element whose background we're going to clip -->
-    <div class="clipped pt-4">
+    <div class="clipped pt-4" onclick="shit()">
         <img src="/assets/zuzjes-logo-linocut-3.svg" class="d-lg-block d-none" width="120">
         <img src="/assets/zuzjes-logo-linocut-3-white.svg" class="d-block d-lg-none" width="120">
     </div>
@@ -129,6 +129,16 @@
     var s = document.getElementsByTagName('script')[0];
     s.parentNode.insertBefore(t, s);
   })();
+</script>
+<script>
+    var shitCounter = 0;
+    function shit(){
+        shitCounter++;
+        if (shitCounter == 5) {
+            console.log('xxx')
+            $('img').addClass('peklo')
+        }
+    }
 </script>
 </body>
 </html>
