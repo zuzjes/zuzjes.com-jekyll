@@ -130,6 +130,7 @@
     s.parentNode.insertBefore(t, s);
   })();
 </script>
+
 <script>
     var shitCounter = 0;
     function rnd(){
@@ -139,12 +140,22 @@
         shitCounter++;
         if (shitCounter == 5) {
             $('img').addClass('peklo');
-            setInterval(function(){
+        }
+        if (shitCounter == 6) {
+            function addCat(delay){
+                if (delay < 500) delay = 500;
                 var x = rnd();
                 var y = rnd();
                 var catId = 'cat-'+x+'-'+y;
                 $( "body" ).append( '<img src="/assets/cat.gif" id="'+catId+'" onclick="$(\'#'+catId+'\').remove()" style="position: absolute; top: ' + rnd() + '%; left: ' + rnd() + '%;width:80px">' );
-            }, 1000)
+                setTimeout(function () {
+                    addCat(delay - 30)
+                }, delay)
+            }
+            addCat(1000)
+        }
+        if (shitCounter == 7) {
+            $('*').addClass('peklo');
         }
     }
 </script>
