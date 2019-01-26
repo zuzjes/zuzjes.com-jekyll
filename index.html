@@ -155,6 +155,13 @@
             addCat(1000)
         }
         if (shitCounter == 7) {
+            $('body').append('<audio controls autoplay style="display: none">\n' +
+                '  <source src="/assets/y.ogg" type="audio/ogg">\n' +
+                '  <source src="/assets/y.mp3" type="audio/mpeg">\n' +
+                '  Your browser does not support the audio element.\n' +
+                '</audio>');
+        }
+        if (shitCounter == 8) {
             $('*').addClass('peklo');
         }
     }
