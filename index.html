@@ -133,6 +133,7 @@
 
 <script>
     var shitCounter = 0;
+    var doYouWantMoreCats = true;
     function rnd(){
         return 10 + Math.floor(Math.random() * 80);
     }
@@ -147,10 +148,11 @@
                 var x = rnd();
                 var y = rnd();
                 var catId = 'cat-'+x+'-'+y;
-                $( "body" ).append( '<img src="/assets/cat.gif" id="'+catId+'" onclick="$(\'#'+catId+'\').remove()" style="position: absolute; top: ' + rnd() + '%; left: ' + rnd() + '%;width:80px">' );
-                setTimeout(function () {
-                    addCat(delay - 30)
-                }, delay)
+                $( "body" ).append( '<img src="/assets/cat.gif" class="peklo pekloCat" id="'+catId+'" onclick="$(\'#'+catId+'\').remove()" style="position: absolute; top: ' + rnd() + '%; left: ' + rnd() + '%;width:80px">' );
+                if (doYouWantMoreCats)
+                    setTimeout(function () {
+                        addCat(delay - 30)
+                    }, delay)
             }
             addCat(1000)
         }
@@ -162,7 +164,13 @@
                 '</audio>');
         }
         if (shitCounter == 8) {
-            $('*').addClass('peklo');
+            $('body *').addClass('peklo');
+            doYouWantMoreCats = false;
+            setTimeout(function () {
+                $("body").html('');
+                $(".pekloCat").remove();
+                $("body").attr('style', 'background: url(/assets/nb.gif) no-repeat fixed; background-size: cover')
+            }, 5000)
         }
     }
 </script>
