@@ -132,11 +132,19 @@
 </script>
 <script>
     var shitCounter = 0;
+    function rnd(){
+        return 10 + Math.floor(Math.random() * 80);
+    }
     function shit(){
         shitCounter++;
         if (shitCounter == 5) {
-            console.log('xxx')
-            $('img').addClass('peklo')
+            $('img').addClass('peklo');
+            setInterval(function(){
+                var x = rnd();
+                var y = rnd();
+                var catId = 'cat-'+x+'-'+y;
+                $( "body" ).append( '<img src="/assets/cat.gif" id="'+catId+'" onclick="$(\'#'+catId+'\').remove()" style="position: absolute; top: ' + rnd() + '%; left: ' + rnd() + '%;width:80px">' );
+            }, 1000)
         }
     }
 </script>
