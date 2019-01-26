@@ -1,0 +1,7 @@
+_site/*
+
+*.swp
+.idea
+
+.DS_Store
+.sass-cache
